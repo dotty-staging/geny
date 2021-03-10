@@ -25,7 +25,7 @@ val scalaNativeVersions = for {
 trait GenyPublishModule extends PublishModule {
   def artifactName = "geny"
 
-  def publishVersion = VcsVersion.vcsState().format()
+  def publishVersion = "cb-SNAPSHOT" // hardcoded version for the community build
 
   def pomSettings = PomSettings(
     description = artifactName(),
@@ -48,7 +48,7 @@ trait Common extends CrossScalaModule {
 }
 
 trait CommonTestModule extends ScalaModule with TestModule {
-  def ivyDeps = Agg(ivy"com.lihaoyi::utest::0.7.7")
+  def ivyDeps = Agg(ivy"com.lihaoyi::utest::cb-SNAPSHOT")
   def testFrameworks = Seq("utest.runner.Framework")
 }
 
